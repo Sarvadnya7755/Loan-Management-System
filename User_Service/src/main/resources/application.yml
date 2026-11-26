@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: user-service
+  main:
+    banner-mode: console
+  banner:
+    location: classpath:banner.txt
+    
+server:
+  port: 3001
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

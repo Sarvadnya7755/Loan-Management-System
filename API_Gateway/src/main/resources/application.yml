@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: API_Gateway
+    
+  main:
+    banner-mode: console
+  banner:
+    location: classpath:banner.txt
+    
+  cloud:
+    gateway:
+      routes:
+      # User Service
+      - id: Userservice
+        uri: lb://USER-SERVICE
+        predicates:
+        - Path=/user/**
+    
+server:
+  port: 5001
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
